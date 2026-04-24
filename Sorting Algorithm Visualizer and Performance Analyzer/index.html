@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorting Algorithm Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header id="app-header">
+    <h1>Sorting Algorithm Visualizer</h1>
+  </header>
+
+  <main id="app-main">
+
+    <!-- Control Panel -->
+    <section id="control-panel">
+
+      <div class="control-row">
+
+        <div class="field-group">
+          <label for="algorithm-select">Algorithm</label>
+          <select id="algorithm-select">
+            <option value="" disabled selected>Select…</option>
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+            <option value="insertion">Insertion Sort</option>
+            <option value="merge">Merge Sort</option>
+            <option value="quick">Quick Sort</option>
+            <option value="heap">Heap Sort</option>
+          </select>
+        </div>
+
+        <div class="field-group field-grow">
+          <label for="custom-array-input">Array Input <span class="hint">space or comma separated</span></label>
+          <div class="input-addon">
+            <input type="text" id="custom-array-input"
+                   placeholder="e.g.  38  27  43  3  9  82  10"
+                   spellcheck="false" autocomplete="off" />
+            <button id="btn-use-array" class="btn btn-outline">Use</button>
+          </div>
+        </div>
+
+        <div class="field-group field-speed">
+          <label for="speed-slider">Speed <span class="speed-badge" id="speed-value">50</span></label>
+          <input type="range" id="speed-slider" min="1" max="100" value="50" />
+          <div class="speed-labels"><span>Slow</span><span>Fast</span></div>
+        </div>
+
+      </div>
+
+      <div class="control-row control-row-actions">
+        <div class="btn-group">
+          <button id="btn-generate" class="btn btn-secondary">Generate</button>
+          <button id="btn-start"    class="btn btn-primary">Start</button>
+          <button id="btn-pause"    class="btn btn-warning" disabled>
+            <span id="pause-label">Pause</span>
+          </button>
+          <button id="btn-step"     class="btn btn-accent" disabled>Next Step</button>
+          <button id="btn-reset"    class="btn btn-danger">Reset</button>
+        </div>
+
+        <label class="sound-wrap">
+          <input type="checkbox" id="sound-toggle" />
+          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+          <span class="sound-text">Sound</span>
+        </label>
+      </div>
+
+    </section>
+
+    <!-- Stats Bar -->
+    <section id="stats-bar">
+      <div class="stat-cell">
+        <div class="stat-label">Algorithm</div>
+        <div class="stat-value" id="info-algo-name">—</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Complexity</div>
+        <div class="stat-value" id="info-time-complexity">—</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Comparisons</div>
+        <div class="stat-value mono" id="info-comp-count">0</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Swaps</div>
+        <div class="stat-value mono" id="info-swap-count">0</div>
+      </div>
+      <div class="stat-cell">
+        <div class="stat-label">Status</div>
+        <div class="stat-value" id="info-exec-status">
+          <span class="status-dot idle"></span> Idle
+        </div>
+      </div>
+    </section>
+
+    <!-- Visualizer -->
+    <section id="visualizer">
+      <div id="bars-container"></div>
+    </section>
+
+    <!-- Legend -->
+    <section id="legend">
+      <div class="legend-item"><span class="swatch default"></span> Default</div>
+      <div class="legend-item"><span class="swatch comparing"></span> Comparing</div>
+      <div class="legend-item"><span class="swatch swapping"></span> Swapping</div>
+      <div class="legend-item"><span class="swatch sorted"></span> Sorted</div>
+      <div class="legend-item"><span class="swatch pivot"></span> Pivot</div>
+    </section>
+
+  </main>
+
+  <footer id="app-footer">
+    Sorting Algorithm Visualizer &nbsp;·&nbsp; Vanilla HTML · CSS · JavaScript
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
